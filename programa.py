@@ -78,6 +78,21 @@ participanteUltimo = ultimoParticipante(db)
 edadOrdenado = ordenaEdad(db)
 promedioTotalDisparos = promedioDisparosGeneral(contDisparos, disparos)
 
+for dato in db:
+    if dato['promedioDisparo'] > promedioTotalDisparos:
+        promedioMayor.append(dato)
+
+db_file = open('db.txt', 'w')
+db_file.write(f'Podio de los ganadores: {ganadores}\n')
+db_file.write(f'El ultimo participante: {participanteUltimo}\n')
+db_file.write(f'Cantidad total de participantes: {contParticipantes}\n')
+db_file.write(f'Cantidad de hombres que fueron parte del concurso: {contMasculino}\n')
+db_file.write(f'Edad promedio de las mujeres: {promedioEdadMujer}\n')
+db_file.write(f'Participantes ordenados por edad: {edadOrdenado}\n')
+db_file.write(f'Promedio de disparos general: {promedioTotalDisparos}\n')
+db_file.write(f'Participantes cuyo promedio de disparos es mayor al promedio general: {promedioMayor}')
+db_file.close()
+
 print(f'Podio de los ganadores: {ganadores}\n')
 print(f'El último participante: {participanteUltimo}\n')
 print(f'Cantidad total de participantes: {contParticipantes}\n')
@@ -85,3 +100,4 @@ print(f'Cantidad de hombres que fueron parte del concurso: {contMasculino}\n')
 print(f'Edad promedio de las mujeres: {promedioEdadMujer}\n')
 print(f'Participantes ordenados por edad: {edadOrdenado}\n')
 print(f'Promedio de disparos general: {promedioTotalDisparos}\n')
+print(f'Participantes cuyo promedio de disparos es mayor al promedio general: {promedioMayor}')
